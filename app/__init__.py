@@ -1,4 +1,9 @@
 from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
+
 
 App = Flask(__name__)
-from app import views
+App.config.from_object('config')
+db = SQLAlchemy(App)
+
+from app import views, models
